@@ -11,7 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource
 import org.springframework.context.ApplicationEventPublisher
 import toy.sian.spring.event.domain.Product
 import toy.sian.spring.event.domain.exception.ProductIllegalArgumentException
-import toy.sian.spring.event.event.ProductCreated
+import toy.sian.spring.event.domain.event.ProductCreated
 import toy.sian.spring.event.infra.ProductRepositoryAdapter
 
 class CreateProductProcessorSpec {

@@ -1,4 +1,4 @@
-package toy.sian.spring.event.event
+package toy.sian.spring.event.domain.event
 
 data class ProductCreated(
     val id: Long,

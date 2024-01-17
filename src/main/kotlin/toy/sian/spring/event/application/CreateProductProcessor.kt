@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional
 import toy.sian.spring.event.domain.Product
 import toy.sian.spring.event.domain.ProductRepository
 import toy.sian.spring.event.domain.exception.ProductIllegalArgumentException
-import toy.sian.spring.event.event.ProductCreated
+import toy.sian.spring.event.domain.event.ProductCreated
 
 @Service
 class CreateProductProcessor(
