@@ -1,0 +1,10 @@
+### 상품 생성
+POST {{baseUrl}}{{createProductEndPoint}}
+Content-Type: application/json
+
+{
+  "name": "상품명",
+  "price": 10000,
+  "stockQuantity": 100
+}
+
