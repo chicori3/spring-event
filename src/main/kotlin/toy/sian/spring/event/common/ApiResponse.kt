@@ -26,7 +26,7 @@ data class ApiResponse<T>(
                     code = code,
                     message = message,
                     properties = properties,
-                )
+                ),
             )
         }
     }
