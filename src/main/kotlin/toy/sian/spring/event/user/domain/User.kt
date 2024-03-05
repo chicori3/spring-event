@@ -4,10 +4,11 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.Table
 import toy.sian.spring.event.common.BaseEntity
-import java.time.Instant
 
 @Entity
+@Table(name = "users")
 class User(
     id: Long = 0,
     email: String,
@@ -30,15 +31,5 @@ class User(
 
     enum class Status {
         ACTIVE, INACTIVE
-    }
-
-    fun register(email: String, nickname: String) {
-        raise(
-            UserRegistered(
-                email = email,
-                nickname = nickname,
-                createdAt = createdAt ?: Instant.now(),
-            ),
-        )
     }
 }
