@@ -1,4 +1,4 @@
-package toy.sian.spring.event.user.domain
+package toy.sian.spring.event.history
 
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
