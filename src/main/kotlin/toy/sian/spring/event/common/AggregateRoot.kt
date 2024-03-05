@@ -19,6 +19,6 @@ abstract class AggregateRoot {
     }
 
     companion object {
-        private val log = KotlinLogging.logger {  }
+        private val log = KotlinLogging.logger { }
     }
 }
