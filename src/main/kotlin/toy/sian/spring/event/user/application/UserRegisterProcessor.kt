@@ -1,12 +1,13 @@
-package toy.sian.spring.event.user.domain
+package toy.sian.spring.event.user.application
 
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
+import toy.sian.spring.event.user.domain.UserRegister
+import toy.sian.spring.event.user.domain.UserRegistered
 
 @Service
-class UserService(
+class UserRegisterProcessor(
     private val userRegister: UserRegister,
-
     private val eventPublisher: ApplicationEventPublisher,
 ) {
     fun register(email: String, nickname: String) {

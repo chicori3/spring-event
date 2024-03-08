@@ -1,11 +1,12 @@
-package toy.sian.spring.event.user.domain
+package toy.sian.spring.event.user.application
 
 import io.kotest.core.spec.style.BehaviorSpec
 import org.springframework.boot.test.context.SpringBootTest
+import toy.sian.spring.event.user.application.UserRegisterProcessor
 
 @SpringBootTest
-class UserServiceTest(
-    private val sut: UserService,
+class UserRegisterProcessorTest(
+    private val sut: UserRegisterProcessor,
 ) : BehaviorSpec({
     given("유저 가입 시") {
         `when`("이메일과 닉네임이 주어지면") {
