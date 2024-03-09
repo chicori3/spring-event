@@ -1,15 +1,19 @@
-package toy.sian.spring.event.user.domain
+package toy.sian.spring.event.user.application
 
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
+import toy.sian.spring.event.user.domain.User
+import toy.sian.spring.event.user.domain.UserRegister
+import toy.sian.spring.event.user.domain.UserRegistered
 
 @Service
-class UserService(
+class UserRegisterProcessor(
     private val userRegister: UserRegister,
-
     private val eventPublisher: ApplicationEventPublisher,
 ) {
-    fun register(email: String, nickname: String) {
+    @Transactional
+    fun register(email: String, nickname: String): User {
         val registeredUser = userRegister.register(
             email = email,
             nickname = nickname,
@@ -22,5 +26,7 @@ class UserService(
                 nickname = registeredUser.nickname,
             ),
         )
+
+        return registeredUser
     }
 }
