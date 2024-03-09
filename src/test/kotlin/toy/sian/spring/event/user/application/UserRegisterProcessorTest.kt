@@ -1,21 +1,28 @@
 package toy.sian.spring.event.user.application
 
 import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.core.spec.style.FunSpec
+import io.kotest.matchers.shouldBe
 import org.springframework.boot.test.context.SpringBootTest
-import toy.sian.spring.event.user.application.UserRegisterProcessor
 
 @SpringBootTest
 class UserRegisterProcessorTest(
     private val sut: UserRegisterProcessor,
-) : BehaviorSpec({
-    given("유저 가입 시") {
-        `when`("이메일과 닉네임이 주어지면") {
-            val email = "test@test.com"
-            val nickname = "test-user"
+) :  DescribeSpec(
+    {
+        describe("유저 가입 시") {
+            context("이메일과 닉네임이 주어지면") {
+                it("유저가 생성된다") {
+                    val email = "test@test.com"
+                    val nickname = "test-user"
 
-            then("유저가 생성되고 가입 이벤트가 발행된다") {
-                sut.register(email, nickname)
+                    val result = sut.register(email, nickname)
+
+                    result.email shouldBe email
+                    result.nickname shouldBe nickname
+                }
             }
         }
     }
-},)
+)
