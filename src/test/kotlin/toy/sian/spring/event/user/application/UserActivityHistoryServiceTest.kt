@@ -1,12 +1,10 @@
 package toy.sian.spring.event.user.application
 
 import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.assertions.throwables.shouldThrowExactlyUnit
 import io.kotest.core.spec.style.DescribeSpec
-import io.kotest.matchers.nulls.shouldNotBeNull
-import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import org.springframework.boot.test.context.SpringBootTest
+import toy.sian.spring.event.history.application.UserActivityHistoryService
 import toy.sian.spring.event.user.domain.User
 import toy.sian.spring.event.user.domain.UserNotFoundException
 import toy.sian.spring.event.user.domain.UserRepository

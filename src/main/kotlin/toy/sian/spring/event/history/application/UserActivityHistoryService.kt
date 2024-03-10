@@ -1,8 +1,10 @@
-package toy.sian.spring.event.user.application
+package toy.sian.spring.event.history.application
 
+import mu.KotlinLogging
 import org.springframework.stereotype.Service
-import toy.sian.spring.event.user.domain.UserActivityHistory
-import toy.sian.spring.event.user.domain.UserActivityHistoryHandler
+import org.springframework.transaction.annotation.Transactional
+import toy.sian.spring.event.history.domain.UserActivityHistory
+import toy.sian.spring.event.history.domain.UserActivityHistoryHandler
 import toy.sian.spring.event.user.domain.UserFinder
 import toy.sian.spring.event.user.domain.UserNotFoundException
 
@@ -11,13 +13,19 @@ class UserActivityHistoryService(
     private val userActivityHistoryHandler: UserActivityHistoryHandler,
     private val userFinder: UserFinder,
 ) {
+    @Transactional
     fun handleSignIn(userId: Long): UserActivityHistory {
         userFinder.findById(userId) ?: throw UserNotFoundException()
         return userActivityHistoryHandler.handleSignIn(userId)
     }
 
+    @Transactional
     fun handleSignOut(userId: Long): UserActivityHistory {
         userFinder.findById(userId) ?: throw UserNotFoundException()
         return userActivityHistoryHandler.handleSignOut(userId)
+    }
+
+    companion object {
+        private val log = KotlinLogging.logger { }
     }
 }
