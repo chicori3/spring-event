@@ -10,4 +10,7 @@ class UserFinder(
     fun findById(userId: Long): User? {
         return userRepository.findByIdOrNull(userId)
     }
+    fun findByEmail(email: String): User? {
+        return userRepository.findByEmail(email)
+    }
 }
