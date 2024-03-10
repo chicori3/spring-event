@@ -1,4 +1,4 @@
-package toy.sian.spring.event.user.domain
+package toy.sian.spring.event.history.domain
 
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType
