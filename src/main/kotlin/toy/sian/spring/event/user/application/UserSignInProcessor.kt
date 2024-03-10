@@ -2,6 +2,7 @@ package toy.sian.spring.event.user.application
 
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import toy.sian.spring.event.user.domain.UserSignIn
 import toy.sian.spring.event.user.domain.UserSignedIn
 import toy.sian.spring.event.user.domain.UserSignInHandler
@@ -12,6 +13,7 @@ class UserSignInProcessor(
     private val userSignInHandler: UserSignInHandler,
     private val eventPublisher: ApplicationEventPublisher,
 ) {
+    @Transactional
     fun signIn(email: String): UserSignIn {
         val userSignIn = userSignInHandler.signIn(email)
 
