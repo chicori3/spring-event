@@ -9,10 +9,15 @@ class UserSignInHandler(
     private val tokenGenerator: TokenGenerator,
 ) {
     @Transactional
-    fun signIn(email: String): String {
-        userFinder.findByEmail(email)
+    fun signIn(email: String): UserSignIn {
+        val user = userFinder.findByEmail(email)
             ?: throw UserNotFoundException()
+        val token = tokenGenerator.generate()
 
-        return tokenGenerator.generate()
+        return UserSignIn(
+            userId = user.id,
+            email = user.email,
+            token = token,
+        )
     }
 }
