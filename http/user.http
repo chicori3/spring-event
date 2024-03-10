@@ -1,0 +1,8 @@
+### 유저 로그인
+POST {{base-url}}/users/sign-in
+Content-Type: application/json
+
+{
+  "email": "test@test.com"
+}
+
