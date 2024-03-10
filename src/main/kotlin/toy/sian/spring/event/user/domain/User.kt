@@ -1,6 +1,8 @@
 package toy.sian.spring.event.user.domain
 
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -26,6 +28,7 @@ class User(
     var nickname = nickname
         protected set
 
+    @Enumerated(EnumType.STRING)
     var status = status
         protected set
 
