@@ -1,6 +1,5 @@
 package toy.sian.spring.event.history.application
 
-import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import toy.sian.spring.event.history.domain.UserActivityHistory
@@ -23,9 +22,5 @@ class UserActivityHistoryService(
     fun handleSignOut(userId: Long): UserActivityHistory {
         userFinder.findById(userId) ?: throw UserNotFoundException()
         return userActivityHistoryHandler.handleSignOut(userId)
-    }
-
-    companion object {
-        private val log = KotlinLogging.logger { }
     }
 }
